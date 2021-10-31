@@ -15,14 +15,13 @@ class Contact(id: EntityID<Long>): LongEntity(id) {
     var phone by ContactsTable.phone
     var email by ContactsTable.email
 
-    @Serializable
-    data class ContactDTO(val id: Long = 0,
-                          @Required val name: String,
-                          val surname: String = "",
-                          @Required val phone: String,
-                          val email: String = "")
+    @Serializable data class ContactDTO(@Required val name: String,
+                                        @Required val phone: String,
+                                        val surname: String = "",
+                                        val email: String = "",
+                                        val id: Long = 0)
 
-    fun toDTO() = ContactDTO(this.id.value, this.name, this.surname, this.phone, this.email)
+    fun toDTO() = ContactDTO(this.name, this.phone, this.surname, this.email, this.id.value)
 
     infix fun fromDTO(contactDTO: ContactDTO) =
         this.also {

@@ -3,7 +3,7 @@ package testpassword.plugins
 import io.ktor.application.*
 import io.ktor.request.*
 
-class QueryFilterException(msg: String = "Filters should match '&filters=field:pattern;field:pattern'"): Exception(msg)
+class QueryFilterException(msg: String = "Filters should match 'filters=field:pattern;field:pattern'"): Exception(msg)
 
 val ApplicationRequest.queryFilters: Map<String, String>
     get() =

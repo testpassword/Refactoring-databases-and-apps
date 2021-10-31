@@ -24,7 +24,7 @@ fun Route.contacts() {
                                     when (k) {
                                         "name" -> r.name.contains(v)
                                         "surname" -> r.surname.contains(v)
-                                        "phone" -> r.phone.startsWith(v)
+                                        "phone" -> r.phone.contains(v)
                                         "email" -> r.email.contains(v)
                                         else -> throw NotAcceptedKeyFoundException(k)
                                     }
