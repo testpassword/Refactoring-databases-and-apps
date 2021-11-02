@@ -1,0 +1,20 @@
+swagger: "3.0"
+components:
+  schemas:
+    Contact:
+      type: object
+        properties:
+          id:
+            type: integer
+            format: int64
+          name:
+            type: string
+          surname:
+            type: string
+          phone:
+            type: string
+            example: +71112223334
+          email:
+            type: string
+            example: a@b.c
+  

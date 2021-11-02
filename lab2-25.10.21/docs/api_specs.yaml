@@ -1,0 +1,68 @@
+swagger: "3.0"
+info:
+  title: back module api specs
+  version: 1.0.0
+host: localhost:8080
+schemes:
+  - https
+paths:
+  /contacts/:
+    get:
+      summary: Returns a list of contacts.
+      parameters:
+        - name: filter
+          in: query
+          schema:
+            type: string
+            required: false
+            example: 'name:pattern;name:pattern'
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/schemas/Contact'
+        400:
+          description: Filters should match 'filters=field:pattern;field:pattern'
+        default:
+          description: Unexpected error
+    post:
+      summary: Creates a new contact and returns it's id.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/schemas/Contact'
+        responses:
+          '201':
+            description: Created
+            content:
+              application/json:
+                schema:
+                  id:
+                    type: integer
+                    format: int64
+  /contacts/{id}:
+    get:
+      summary: Returns a contacts by id.
+      parameters:
+        - name: id
+          in: pathf
+          required: true
+          schema:
+            type: integer
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/schemas/Contact'
+        400:
+          description: The specified user ID is invalid (not a number).
+        404:
+          description: A contact with the specified id was not found.
+        default:
+          description: Unexpected error
