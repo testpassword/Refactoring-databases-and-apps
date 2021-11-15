@@ -1,0 +1,15 @@
+GET http://localhost:8080/api/turtle/pd
+###
+GET http://localhost:8080/api/turtle/move?steps=1
+###
+GET http://localhost:8080/api/turtle/angle?a=90
+###
+GET http://localhost:8080/api/turtle/move?steps=1
+###
+GET http://localhost:8080/api/turtle/angle?a=180
+###
+GET http://localhost:8080/api/turtle/move?steps=1
+###
+GET http://localhost:8080/api/turtle/angle?a=270
+###
+GET http://localhost:8080/api/turtle/move?steps=1
